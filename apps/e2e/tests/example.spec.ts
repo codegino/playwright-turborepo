@@ -1,8 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { TRE_HOSTNAME } from "../constants";
 
-// iterate from 1 - 10
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 500; i++) {
   test(`ordering mobile plan test #${i}`, async ({ page }) => {
     await page.goto(TRE_HOSTNAME);
 
