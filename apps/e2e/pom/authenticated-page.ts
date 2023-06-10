@@ -34,7 +34,7 @@ export class AuthenticatedPage {
   }
 
   async navigateToHomePage() {
-    await this.page.goto("https://www.tre.se/mitt3");
+    await this.page.goto(MITT3_HOSTNAME);
   }
 
   async acceptAllCookies() {
