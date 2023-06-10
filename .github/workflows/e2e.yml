@@ -4,6 +4,13 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+env:
+  CI: true
+  E2E_TRE_HOSTNAME: ${{secrets.E2E_TRE_HOSTNAME}}
+  E2E_MITT3_HOSTNAME: ${{secrets.E2E_MITT3_HOSTNAME}}
+  E2E_MITT3_USERNAME: ${{secrets.E2E_MITT3_USERNAME}}
+  E2E_MITT3_PASSWORD: ${{secrets.E2E_MITT3_PASSWORD}}
+  E2E_MITT3_AUTH_PAGE: ${{secrets.E2E_MITT3_AUTH_PAGE}}
 jobs:
   test:
     timeout-minutes: 60

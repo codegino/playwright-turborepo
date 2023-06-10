@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { TRE_HOSTNAME } from "../constants";
 
 test("ordering mobile plan", async ({ page }) => {
-  await page.goto("https://tre.se");
+  await page.goto(TRE_HOSTNAME);
 
   await page.getByRole("button", { name: "Godkänn alla" }).click();
 
