@@ -4,7 +4,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "e2e": "turbo run e2e"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
@@ -14,7 +15,6 @@
     "turbo": "latest"
   },
   "name": "my-turborepo",
-  "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*",
     "packages/*"
