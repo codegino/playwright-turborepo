@@ -1,10 +1,14 @@
-import { Button, Header } from "ui";
+import { Suspense } from "react";
+import SomeServerComponentWrapper from "../components/server-components/some-sc-wrapper";
 
-export default function Page() {
+async function Home() {
   return (
-    <>
-      <Header text="Web" />
-      <Button />
-    </>
+    <div>
+      <Suspense fallback={<div>Some wrapper Loading...</div>}>
+        <SomeServerComponentWrapper />
+      </Suspense>
+    </div>
   );
 }
+
+export default Home;
