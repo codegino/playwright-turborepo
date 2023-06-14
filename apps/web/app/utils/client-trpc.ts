@@ -1,14 +1,14 @@
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 import { AppRouter } from "some-trpc";
-import SuperJSON from "superjson";
 
 function getBaseUrl() {
+  // Decide which url to use depending on the environment
   return `http://localhost:4000`;
 }
 
 export const clientTrpc = createTRPCNext<AppRouter>({
-  config(opts) {
+  config() {
     return {
       links: [
         httpBatchLink({
@@ -16,16 +16,7 @@ export const clientTrpc = createTRPCNext<AppRouter>({
           async headers() {
             const token = window.localStorage.getItem("xxx-token");
 
-            const headers: Record<string, string> = {
-              "xxx-any-custom-header": "123",
-            };
-
-            // if (token) {
-            // headers["Authorization"] = `Bearer ${token}`;
-            headers["Authorization"] = `Bearer`;
-            // }
-
-            return headers;
+            return token ? { Authorization: `Bearer ${token}` } : {};
           },
         }),
       ],

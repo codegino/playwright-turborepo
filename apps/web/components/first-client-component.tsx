@@ -5,7 +5,7 @@ import { clientTrpc } from "../app/utils/client-trpc";
 type ComponentType = FC<PropsWithChildren>;
 
 const FirstComponent: ComponentType = ({ children }) => {
-  const hello = clientTrpc.hello.useQuery({ text: "first client" });
+  const hello = clientTrpc.hello.useQuery({ text: ", from TRPC!" });
 
   if (!hello.data) {
     return <div>First Client Component Loading...</div>;

@@ -1,19 +1,10 @@
-import { TRPCError, inferAsyncReturnType, initTRPC } from "@trpc/server";
-import superjson from "superjson";
+import { TRPCError, initTRPC } from "@trpc/server";
 
-// By cookie
-export const createContext = () => {
-  return {
-    apiKey: "123" as string | undefined,
-  };
+export type Context = (opts: { req: Request; res: Response }) => {
+  apiKey: string | undefined;
 };
 
-export type Context = inferAsyncReturnType<typeof createContext>;
-
-const t = initTRPC.context<Context>().create({
-  // to make TypeScript happy
-  transformer: undefined,
-});
+const t = initTRPC.context<Context>().create();
 
 const isAuthenticated = t.middleware(async ({ ctx, next }) => {
   if (!ctx.apiKey) {
